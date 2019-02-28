@@ -1,0 +1,6 @@
+{{#each fullNamesProp as |fullNameObj|}}
+  {{full-name-info
+    fullName=fullNameObj
+    delete=(action "onChildDelete")
+  }}
+{{/each}}
