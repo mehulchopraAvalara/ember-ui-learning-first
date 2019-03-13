@@ -17,19 +17,26 @@ export default Component.extend({
     return `${firstProp} ${lastProp}`;
   }),
 
-  click() {
+  /*click() {
     this.setProperties({
       firstProp: '',
       lastProp: '',
     });
-  },
+  },*/
 
-  /* actions: {
+  actions: {
     onClear() {
       this.setProperties({
         firstProp: '',
         lastProp: '',
       });
-    }
-  } */
+    },
+
+    onAdd() {
+      const addName = this.get('addName');
+      addName(this.get('firstProp'), this.get('lastProp'));
+
+      this.send('onClear');
+    },
+  }
 });

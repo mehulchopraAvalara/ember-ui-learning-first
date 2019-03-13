@@ -2,4 +2,5 @@
 {{input placeholder="Last Name" class="last-name" value=lastProp}}<br>
 
 <label class="full-name">{{fullProp}}</label><br>
-<button class="clear-btn">Clear</button>
+<button class="clear-btn" {{action "onClear"}}>Clear</button>
+<button class="add-btn" {{action "onAdd"}}>Add</button>

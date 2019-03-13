@@ -46,4 +46,23 @@ module('Integration | Component | person-name', function(hooks) {
     assert.equal(find('.last-name').value, '', 'last name is blank');
     assert.equal(find('.full-name').innerText, '', 'full name is blank');
   });
+
+  test('add button functionality', async function (assert) {
+    this.set('addName', (firstName, lastName) => {
+      assert.ok('outward going function is called');
+      assert.equal(firstName, 'tony', 'first name is sent out from person-name');
+      assert.equal(lastName, 'stark', 'last name is sent out from person-name');
+    });
+
+    await render(hbs`{{person-name
+      addName=addName
+    }}`);
+    await fillIn('.first-name', 'tony');
+    await fillIn('.last-name', 'stark');
+
+    await click('.add-btn');
+
+    assert.equal(find('.first-name').value, '', 'first name is blank');
+    assert.equal(find('.last-name').value, '', 'last name is blank');
+  });
 });
