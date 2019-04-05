@@ -1,0 +1,11 @@
+<h2>{{book.title}}</h2>
+{{#if fetchBookDetails.isRunning}}
+  Fetching data...
+{{else}}
+  <p>
+    <label>Price: </label><i>{{ price }}</i>
+  </p>
+  <p>
+    <label>Pages: </label><i>{{ pages }}</i>
+  </p>
+{{/if}}
